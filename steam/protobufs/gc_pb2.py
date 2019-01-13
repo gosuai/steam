@@ -22,7 +22,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto2',
   serialized_pb=_b('\n\x08gc.proto\x12\x06\x66oobar\"\xe8\x02\n\x12\x43MsgProtoBufHeader\x12\x17\n\x0f\x63lient_steam_id\x18\x01 \x01(\x06\x12\x19\n\x11\x63lient_session_id\x18\x02 \x01(\x05\x12\x15\n\rsource_app_id\x18\x03 \x01(\r\x12+\n\rjob_id_source\x18\n \x01(\x06:\x14\x31\x38\x34\x34\x36\x37\x34\x34\x30\x37\x33\x37\x30\x39\x35\x35\x31\x36\x31\x35\x12+\n\rjob_id_target\x18\x0b \x01(\x06:\x14\x31\x38\x34\x34\x36\x37\x34\x34\x30\x37\x33\x37\x30\x39\x35\x35\x31\x36\x31\x35\x12\x17\n\x0ftarget_job_name\x18\x0c \x01(\t\x12\x12\n\x07\x65result\x18\r \x01(\x05:\x01\x32\x12\x15\n\rerror_message\x18\x0e \x01(\t\x12K\n\ngc_msg_src\x18\xc8\x01 \x01(\x0e\x32\x18.foobar.GCProtoBufMsgSrc:\x1cGCProtoBufMsgSrc_Unspecified\x12\x1c\n\x13gc_dir_index_source\x18\xc9\x01 \x01(\r*\xb6\x01\n\x10GCProtoBufMsgSrc\x12 \n\x1cGCProtoBufMsgSrc_Unspecified\x10\x00\x12\x1f\n\x1bGCProtoBufMsgSrc_FromSystem\x10\x01\x12 \n\x1cGCProtoBufMsgSrc_FromSteamID\x10\x02\x12\x1b\n\x17GCProtoBufMsgSrc_FromGC\x10\x03\x12 \n\x1cGCProtoBufMsgSrc_ReplySystem\x10\x04')
 )
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _GCPROTOBUFMSGSRC = _descriptor.EnumDescriptor(
   name='GCProtoBufMsgSrc',
@@ -163,6 +162,7 @@ _CMSGPROTOBUFHEADER = _descriptor.Descriptor(
 _CMSGPROTOBUFHEADER.fields_by_name['gc_msg_src'].enum_type = _GCPROTOBUFMSGSRC
 DESCRIPTOR.message_types_by_name['CMsgProtoBufHeader'] = _CMSGPROTOBUFHEADER
 DESCRIPTOR.enum_types_by_name['GCProtoBufMsgSrc'] = _GCPROTOBUFMSGSRC
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CMsgProtoBufHeader = _reflection.GeneratedProtocolMessageType('CMsgProtoBufHeader', (_message.Message,), dict(
   DESCRIPTOR = _CMSGPROTOBUFHEADER,

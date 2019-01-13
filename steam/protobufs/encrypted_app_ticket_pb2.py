@@ -21,7 +21,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto2',
   serialized_pb=_b('\n\x1a\x65ncrypted_app_ticket.proto\"\xad\x01\n\x12\x45ncryptedAppTicket\x12\x19\n\x11ticket_version_no\x18\x01 \x01(\r\x12\x1b\n\x13\x63rc_encryptedticket\x18\x02 \x01(\r\x12\x1c\n\x14\x63\x62_encrypteduserdata\x18\x03 \x01(\r\x12\'\n\x1f\x63\x62_encrypted_appownershipticket\x18\x04 \x01(\r\x12\x18\n\x10\x65ncrypted_ticket\x18\x05 \x01(\x0c\x42\x05H\x01\x90\x01\x00')
 )
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -85,6 +84,7 @@ _ENCRYPTEDAPPTICKET = _descriptor.Descriptor(
 )
 
 DESCRIPTOR.message_types_by_name['EncryptedAppTicket'] = _ENCRYPTEDAPPTICKET
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 EncryptedAppTicket = _reflection.GeneratedProtocolMessageType('EncryptedAppTicket', (_message.Message,), dict(
   DESCRIPTOR = _ENCRYPTEDAPPTICKET,

@@ -26,7 +26,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x1bsteammessages_secrets.proto\x1a steammessages_unified_base.proto\"\x9b\x01\n\x12\x43KeyEscrow_Request\x12\x1b\n\x13rsa_oaep_sha_ticket\x18\x01 \x01(\x0c\x12\x10\n\x08password\x18\x02 \x01(\x0c\x12\x41\n\x05usage\x18\x03 \x01(\x0e\x32\x10.EKeyEscrowUsage: k_EKeyEscrowUsageStreamingDevice\x12\x13\n\x0b\x64\x65vice_name\x18\x04 \x01(\t\"\x82\x02\n\x11\x43KeyEscrow_Ticket\x12\x10\n\x08password\x18\x01 \x01(\x0c\x12\x12\n\nidentifier\x18\x02 \x01(\x04\x12\x0f\n\x07payload\x18\x03 \x01(\x0c\x12\x11\n\ttimestamp\x18\x04 \x01(\r\x12\x41\n\x05usage\x18\x05 \x01(\x0e\x32\x10.EKeyEscrowUsage: k_EKeyEscrowUsageStreamingDevice\x12\x13\n\x0b\x64\x65vice_name\x18\x06 \x01(\t\x12\x14\n\x0c\x64\x65vice_model\x18\x07 \x01(\t\x12\x15\n\rdevice_serial\x18\x08 \x01(\t\x12\x1e\n\x16\x64\x65vice_provisioning_id\x18\t \x01(\r\"9\n\x13\x43KeyEscrow_Response\x12\"\n\x06ticket\x18\x01 \x01(\x0b\x32\x12.CKeyEscrow_Ticket*7\n\x0f\x45KeyEscrowUsage\x12$\n k_EKeyEscrowUsageStreamingDevice\x10\x00\x32\xc8\x01\n\x07Secrets\x12\x80\x01\n\tKeyEscrow\x12\x13.CKeyEscrow_Request\x1a\x14.CKeyEscrow_Response\"H\x82\xb5\x18\x44Service to perform authenticated key-exchange involving Steam Client\x1a:\x82\xb5\x18\x36Service for accessing credentials and guarding secretsB\x03\x90\x01\x01')
   ,
   dependencies=[steammessages__unified__base__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _EKEYESCROWUSAGE = _descriptor.EnumDescriptor(
   name='EKeyEscrowUsage',
@@ -227,6 +226,7 @@ DESCRIPTOR.message_types_by_name['CKeyEscrow_Request'] = _CKEYESCROW_REQUEST
 DESCRIPTOR.message_types_by_name['CKeyEscrow_Ticket'] = _CKEYESCROW_TICKET
 DESCRIPTOR.message_types_by_name['CKeyEscrow_Response'] = _CKEYESCROW_RESPONSE
 DESCRIPTOR.enum_types_by_name['EKeyEscrowUsage'] = _EKEYESCROWUSAGE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CKeyEscrow_Request = _reflection.GeneratedProtocolMessageType('CKeyEscrow_Request', (_message.Message,), dict(
   DESCRIPTOR = _CKEYESCROW_REQUEST,

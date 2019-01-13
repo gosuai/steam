@@ -24,7 +24,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n steammessages_unified_base.proto\x1a google/protobuf/descriptor.proto\"\x0c\n\nNoResponse*]\n\x13\x45ProtoExecutionSite\x12 \n\x1ck_EProtoExecutionSiteUnknown\x10\x00\x12$\n k_EProtoExecutionSiteSteamClient\x10\x02:4\n\x0b\x64\x65scription\x12\x1d.google.protobuf.FieldOptions\x18\xd0\x86\x03 \x01(\t:>\n\x13service_description\x12\x1f.google.protobuf.ServiceOptions\x18\xd0\x86\x03 \x01(\t:u\n\x16service_execution_site\x12\x1f.google.protobuf.ServiceOptions\x18\xd8\x86\x03 \x01(\x0e\x32\x14.EProtoExecutionSite:\x1ck_EProtoExecutionSiteUnknown:<\n\x12method_description\x12\x1e.google.protobuf.MethodOptions\x18\xd0\x86\x03 \x01(\t:8\n\x10\x65num_description\x12\x1c.google.protobuf.EnumOptions\x18\xd0\x86\x03 \x01(\t:C\n\x16\x65num_value_description\x12!.google.protobuf.EnumValueOptions\x18\xd0\x86\x03 \x01(\tB\x05H\x01\x90\x01\x00')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _EPROTOEXECUTIONSITE = _descriptor.EnumDescriptor(
   name='EProtoExecutionSite',
@@ -133,6 +132,7 @@ DESCRIPTOR.extensions_by_name['service_execution_site'] = service_execution_site
 DESCRIPTOR.extensions_by_name['method_description'] = method_description
 DESCRIPTOR.extensions_by_name['enum_description'] = enum_description
 DESCRIPTOR.extensions_by_name['enum_value_description'] = enum_value_description
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 NoResponse = _reflection.GeneratedProtocolMessageType('NoResponse', (_message.Message,), dict(
   DESCRIPTOR = _NORESPONSE,

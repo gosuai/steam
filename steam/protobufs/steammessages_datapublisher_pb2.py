@@ -25,7 +25,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n!steammessages_datapublisher.proto\x1a steammessages_unified_base.proto\"\xfd\x03\n9CDataPublisher_ClientContentCorruptionReport_Notification\x12\r\n\x05\x61ppid\x18\x01 \x01(\r\x12\x0f\n\x07\x64\x65potid\x18\x02 \x01(\r\x12\x39\n\x0f\x64ownload_source\x18\x03 \x01(\tB \x82\xb5\x18\x1chost name of download source\x12.\n\x08objectid\x18\x04 \x01(\tB\x1c\x82\xb5\x18\x18\x43hunk SHA or Manifest ID\x12\"\n\x06\x63\x65llid\x18\x05 \x01(\rB\x12\x82\xb5\x18\x0e\x43lient Cell ID\x12>\n\x0bis_manifest\x18\x06 \x01(\x08\x42)\x82\xb5\x18%The object is a manifest, not a chunk\x12-\n\x0bobject_size\x18\x07 \x01(\x04\x42\x18\x82\xb5\x18\x14object size in bytes\x12\x37\n\x0f\x63orruption_type\x18\x08 \x01(\rB\x1e\x82\xb5\x18\x1aSee EContentCorruptionType\x12-\n\nused_https\x18\t \x01(\x08\x42\x19\x82\xb5\x18\x15the request was HTTPS\x12:\n\x11oc_proxy_detected\x18\n \x01(\x08\x42\x1f\x82\xb5\x18\x1b\x64\x65tected an OpenCache proxy\"c\n(CValveHWSurvey_GetSurveySchedule_Request\x12\x17\n\x0fsurveydatetoken\x18\x01 \x01(\t\x12\x1e\n\x16surveydatetokenversion\x18\x02 \x01(\x06\"d\n)CValveHWSurvey_GetSurveySchedule_Response\x12\x17\n\x0fsurveydatetoken\x18\x01 \x01(\r\x12\x1e\n\x16surveydatetokenversion\x18\x02 \x01(\x06\x32\xa2\x01\n\rDataPublisher\x12h\n\x1d\x43lientContentCorruptionReport\x12:.CDataPublisher_ClientContentCorruptionReport_Notification\x1a\x0b.NoResponse\x1a\'\x82\xb5\x18#Data Publisher (DP) server services2\xac\x01\n\rValveHWSurvey\x12\x87\x01\n\x11GetSurveySchedule\x12).CValveHWSurvey_GetSurveySchedule_Request\x1a*.CValveHWSurvey_GetSurveySchedule_Response\"\x1b\x82\xb5\x18\x17Should I run the survey\x1a\x11\x82\xb5\x18\rValveHWSurveyB\x03\x90\x01\x01')
   ,
   dependencies=[steammessages__unified__base__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -202,6 +201,7 @@ _CVALVEHWSURVEY_GETSURVEYSCHEDULE_RESPONSE = _descriptor.Descriptor(
 DESCRIPTOR.message_types_by_name['CDataPublisher_ClientContentCorruptionReport_Notification'] = _CDATAPUBLISHER_CLIENTCONTENTCORRUPTIONREPORT_NOTIFICATION
 DESCRIPTOR.message_types_by_name['CValveHWSurvey_GetSurveySchedule_Request'] = _CVALVEHWSURVEY_GETSURVEYSCHEDULE_REQUEST
 DESCRIPTOR.message_types_by_name['CValveHWSurvey_GetSurveySchedule_Response'] = _CVALVEHWSURVEY_GETSURVEYSCHEDULE_RESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CDataPublisher_ClientContentCorruptionReport_Notification = _reflection.GeneratedProtocolMessageType('CDataPublisher_ClientContentCorruptionReport_Notification', (_message.Message,), dict(
   DESCRIPTOR = _CDATAPUBLISHER_CLIENTCONTENTCORRUPTIONREPORT_NOTIFICATION,

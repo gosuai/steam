@@ -25,7 +25,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x1bsteammessages_offline.proto\x1a steammessages_unified_base.proto\":\n&COffline_GetOfflineLogonTicket_Request\x12\x10\n\x08priority\x18\x01 \x01(\r\"W\n\'COffline_GetOfflineLogonTicket_Response\x12\x19\n\x11serialized_ticket\x18\x01 \x01(\x0c\x12\x11\n\tsignature\x18\x02 \x01(\x0c\"0\n.COffline_GetUnsignedOfflineLogonTicket_Request\"O\n\x1b\x43Offline_OfflineLogonTicket\x12\x11\n\taccountid\x18\x01 \x01(\r\x12\x1d\n\x15rtime32_creation_time\x18\x02 \x01(\x07\"_\n/COffline_GetUnsignedOfflineLogonTicket_Response\x12,\n\x06ticket\x18\x01 \x01(\x0b\x32\x1c.COffline_OfflineLogonTicket2\xa3\x03\n\x07Offline\x12\xb5\x01\n\x15GetOfflineLogonTicket\x12\'.COffline_GetOfflineLogonTicket_Request\x1a(.COffline_GetOfflineLogonTicket_Response\"I\x82\xb5\x18\x45Get a serialized and signed offline logon ticket for the current user\x12\xc1\x01\n\x1dGetUnsignedOfflineLogonTicket\x12/.COffline_GetUnsignedOfflineLogonTicket_Request\x1a\x30.COffline_GetUnsignedOfflineLogonTicket_Response\"=\x82\xb5\x18\x39Get an unsigned offline logon ticket for the current user\x1a\x1c\x82\xb5\x18\x18Offline settings serviceB\x03\x90\x01\x01')
   ,
   dependencies=[steammessages__unified__base__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -197,6 +196,7 @@ DESCRIPTOR.message_types_by_name['COffline_GetOfflineLogonTicket_Response'] = _C
 DESCRIPTOR.message_types_by_name['COffline_GetUnsignedOfflineLogonTicket_Request'] = _COFFLINE_GETUNSIGNEDOFFLINELOGONTICKET_REQUEST
 DESCRIPTOR.message_types_by_name['COffline_OfflineLogonTicket'] = _COFFLINE_OFFLINELOGONTICKET
 DESCRIPTOR.message_types_by_name['COffline_GetUnsignedOfflineLogonTicket_Response'] = _COFFLINE_GETUNSIGNEDOFFLINELOGONTICKET_RESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 COffline_GetOfflineLogonTicket_Request = _reflection.GeneratedProtocolMessageType('COffline_GetOfflineLogonTicket_Request', (_message.Message,), dict(
   DESCRIPTOR = _COFFLINE_GETOFFLINELOGONTICKET_REQUEST,

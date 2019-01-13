@@ -25,7 +25,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x19steammessages_store.proto\x1a steammessages_unified_base.proto\"J\n&CStore_GetLocalizedNameForTags_Request\x12\x10\n\x08language\x18\x01 \x01(\t\x12\x0e\n\x06tagids\x18\x02 \x03(\r\"\x9f\x01\n\'CStore_GetLocalizedNameForTags_Response\x12:\n\x04tags\x18\x01 \x03(\x0b\x32,.CStore_GetLocalizedNameForTags_Response.Tag\x1a\x38\n\x03Tag\x12\r\n\x05tagid\x18\x01 \x01(\r\x12\x14\n\x0c\x65nglish_name\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t2\xc7\x01\n\x05Store\x12\x98\x01\n\x17GetLocalizedNameForTags\x12\'.CStore_GetLocalizedNameForTags_Request\x1a(.CStore_GetLocalizedNameForTags_Response\"*\x82\xb5\x18&Gets tag names in a different language\x1a#\x82\xb5\x18\x1f\x41 service to access store data.B\x03\x90\x01\x01')
   ,
   dependencies=[steammessages__unified__base__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -146,6 +145,7 @@ _CSTORE_GETLOCALIZEDNAMEFORTAGS_RESPONSE_TAG.containing_type = _CSTORE_GETLOCALI
 _CSTORE_GETLOCALIZEDNAMEFORTAGS_RESPONSE.fields_by_name['tags'].message_type = _CSTORE_GETLOCALIZEDNAMEFORTAGS_RESPONSE_TAG
 DESCRIPTOR.message_types_by_name['CStore_GetLocalizedNameForTags_Request'] = _CSTORE_GETLOCALIZEDNAMEFORTAGS_REQUEST
 DESCRIPTOR.message_types_by_name['CStore_GetLocalizedNameForTags_Response'] = _CSTORE_GETLOCALIZEDNAMEFORTAGS_RESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CStore_GetLocalizedNameForTags_Request = _reflection.GeneratedProtocolMessageType('CStore_GetLocalizedNameForTags_Request', (_message.Message,), dict(
   DESCRIPTOR = _CSTORE_GETLOCALIZEDNAMEFORTAGS_REQUEST,

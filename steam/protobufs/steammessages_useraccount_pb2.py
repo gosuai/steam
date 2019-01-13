@@ -25,7 +25,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x1fsteammessages_useraccount.proto\x1a steammessages_unified_base.proto\"+\n)CUserAccount_GetAccountLinkStatus_Request\"Y\n*CUserAccount_GetAccountLinkStatus_Response\x12\x0c\n\x04pwid\x18\x01 \x01(\r\x12\x1d\n\x15identity_verification\x18\x02 \x01(\r\">\n\'CUserAccount_RegisterCompatTool_Request\x12\x13\n\x0b\x63ompat_tool\x18\x01 \x01(\r\"*\n(CUserAccount_RegisterCompatTool_Response2\xea\x02\n\x0bUserAccount\x12\x90\x01\n\x14GetAccountLinkStatus\x12*.CUserAccount_GetAccountLinkStatus_Request\x1a+.CUserAccount_GetAccountLinkStatus_Response\"\x1f\x82\xb5\x18\x1b\x46\x65tches account link status\x12\x98\x01\n\x12RegisterCompatTool\x12(.CUserAccount_RegisterCompatTool_Request\x1a).CUserAccount_RegisterCompatTool_Response\"-\x82\xb5\x18)Register intended account usage of a tool\x1a-\x82\xb5\x18)A service to get user account informationB\x03\x90\x01\x01')
   ,
   dependencies=[steammessages__unified__base__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -150,6 +149,7 @@ DESCRIPTOR.message_types_by_name['CUserAccount_GetAccountLinkStatus_Request'] = 
 DESCRIPTOR.message_types_by_name['CUserAccount_GetAccountLinkStatus_Response'] = _CUSERACCOUNT_GETACCOUNTLINKSTATUS_RESPONSE
 DESCRIPTOR.message_types_by_name['CUserAccount_RegisterCompatTool_Request'] = _CUSERACCOUNT_REGISTERCOMPATTOOL_REQUEST
 DESCRIPTOR.message_types_by_name['CUserAccount_RegisterCompatTool_Response'] = _CUSERACCOUNT_REGISTERCOMPATTOOL_RESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CUserAccount_GetAccountLinkStatus_Request = _reflection.GeneratedProtocolMessageType('CUserAccount_GetAccountLinkStatus_Request', (_message.Message,), dict(
   DESCRIPTOR = _CUSERACCOUNT_GETACCOUNTLINKSTATUS_REQUEST,

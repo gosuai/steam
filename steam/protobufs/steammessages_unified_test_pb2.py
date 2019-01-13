@@ -25,7 +25,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n steammessages_unified_test.proto\x1a steammessages_unified_base.proto\"G\n CMsgTest_MessageToClient_Request\x12#\n\tsome_text\x18\x01 \x01(\tB\x10\x82\xb5\x18\x0cSome string.\"H\n!CMsgTest_MessageToClient_Response\x12#\n\tsome_text\x18\x01 \x01(\tB\x10\x82\xb5\x18\x0cSome string.\"I\n\"CMsgTest_NotifyClient_Notification\x12#\n\tsome_text\x18\x01 \x01(\tB\x10\x82\xb5\x18\x0cSome string.\"G\n CMsgTest_MessageToServer_Request\x12#\n\tsome_text\x18\x01 \x01(\tB\x10\x82\xb5\x18\x0cSome string.\"H\n!CMsgTest_MessageToServer_Response\x12#\n\tsome_text\x18\x01 \x01(\tB\x10\x82\xb5\x18\x0cSome string.\"I\n\"CMsgTest_NotifyServer_Notification\x12#\n\tsome_text\x18\x01 \x01(\tB\x10\x82\xb5\x18\x0cSome string.2\x83\x02\n\x0fTestSteamClient\x12\x81\x01\n\x0fMessageToClient\x12!.CMsgTest_MessageToClient_Request\x1a\".CMsgTest_MessageToClient_Response\"\'\x82\xb5\x18#Some description - MessageToClient.\x12\x66\n\x0cNotifyClient\x12#.CMsgTest_NotifyClient_Notification\x1a\x0b.NoResponse\"$\x82\xb5\x18 Some description - NotifyClient.\x1a\x04\xc0\xb5\x18\x02\x32\x82\x02\n\x14TestServerFromClient\x12\x81\x01\n\x0fMessageToServer\x12!.CMsgTest_MessageToServer_Request\x1a\".CMsgTest_MessageToServer_Response\"\'\x82\xb5\x18#Some description - MessageToServer.\x12\x66\n\x0cNotifyServer\x12#.CMsgTest_NotifyServer_Notification\x1a\x0b.NoResponse\"$\x82\xb5\x18 Some description - NotifyServer.B\x03\x90\x01\x01')
   ,
   dependencies=[steammessages__unified__base__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -221,6 +220,7 @@ DESCRIPTOR.message_types_by_name['CMsgTest_NotifyClient_Notification'] = _CMSGTE
 DESCRIPTOR.message_types_by_name['CMsgTest_MessageToServer_Request'] = _CMSGTEST_MESSAGETOSERVER_REQUEST
 DESCRIPTOR.message_types_by_name['CMsgTest_MessageToServer_Response'] = _CMSGTEST_MESSAGETOSERVER_RESPONSE
 DESCRIPTOR.message_types_by_name['CMsgTest_NotifyServer_Notification'] = _CMSGTEST_NOTIFYSERVER_NOTIFICATION
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CMsgTest_MessageToClient_Request = _reflection.GeneratedProtocolMessageType('CMsgTest_MessageToClient_Request', (_message.Message,), dict(
   DESCRIPTOR = _CMSGTEST_MESSAGETOCLIENT_REQUEST,
