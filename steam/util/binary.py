@@ -1,4 +1,5 @@
-import struct
+from struct import unpack_from as _unpack_from, calcsize as _calcsize
+
 
 class StructReader(object):
     def __init__(self, data):
@@ -41,7 +42,9 @@ class StructReader(object):
         :rtype: :class:`bytes`
         """
         null_index = self.data.find(terminator, self.offset)
-        result = self.data[self.offset:null_index]    # bytes without the terminator
+        if null_index == -1:
+            raise RuntimeError("Reached end of buffer")
+        result = self.data[self.offset:null_index]  # bytes without the terminator
         self.offset = null_index + len(terminator)  # advance offset past terminator
         return result
 
@@ -53,8 +56,8 @@ class StructReader(object):
         :return data: result from :func:`struct.unpack_from`
         :rtype: :class:`tuple`
         """
-        data = struct.unpack_from(format_text, self.data, self.offset)
-        self.offset += struct.calcsize(format_text)
+        data = _unpack_from(format_text, self.data, self.offset)
+        self.offset += _calcsize(format_text)
         return data
 
     def skip(self, n):

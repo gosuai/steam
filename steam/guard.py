@@ -132,10 +132,13 @@ class SteamAuthenticator(object):
             if not medium.logged_on:
                 raise SteamAuthenticatorError("SteamClient instance not logged in")
 
-            resp = medium.unified_messages.send_and_wait("TwoFactor.%s#1" % action,
-                                                         params, timeout=10)
+            resp, error = medium.unified_messages.send_and_wait("TwoFactor.%s#1" % action,
+                                                                params, timeout=10)
+
+            if error:
+                raise SteamAuthenticatorError("Failed: %s" % str(error))
             if resp is None:
-                raise SteamAuthenticatorError("Failed to add authenticator. Request timeout")
+                raise SteamAuthenticatorError("Failed. Request timeout")
 
             resp = proto_to_dict(resp)
 
@@ -238,7 +241,7 @@ class SteamAuthenticator(object):
         :return: list of codes
         :rtype: list
         """
-        return self._send_request('CreateEmergencyCodes', {}).get('code', [])
+        return self._send_request('CreateEmergencyCodes', {}).get('codes', [])
 
     def destroy_emergency_codes(self):
         """Destroy all emergency codes
@@ -364,9 +367,13 @@ class SteamAuthenticator(object):
         sess = self._get_web_session()
 
         try:
-            resp = sess.get('https://store.steampowered.com//phone/validate',
-                            params={'phoneNumber': phone_number},
-                            timeout=15).json()
+            resp = sess.post('https://store.steampowered.com/phone/validate',
+                             data={
+                                'phoneNumber': phone_number,
+                                'sessionID': sess.cookies.get('sessionid', domain='store.steampowered.com'),
+                                },
+                             allow_redirects=False,
+                             timeout=15).json()
         except:
             resp = {}
 

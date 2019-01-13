@@ -26,13 +26,16 @@ class SteamUser(object):
             )
 
     def get_ps(self, field_name, wait_pstate=True):
+        """Get property from PersonaState
+
+        `See full list of available fields_names <https://github.com/ValvePython/steam/blob/fa8a5127e9bb23185483930da0b6ae85e93055a7/protobufs/steammessages_clientserver_friends.proto#L125-L153>`_
+        """
         if not wait_pstate or self._pstate_ready.wait(timeout=5):
             if self._pstate is None and wait_pstate:
                 self._steam.request_persona_state([self.steam_id])
                 self._pstate_ready.wait(timeout=5)
 
-            if self._pstate and self._pstate.HasField(field_name):
-                return getattr(self._pstate, field_name)
+            return getattr(self._pstate, field_name)
         return None
 
     @property
@@ -63,6 +66,21 @@ class SteamUser(object):
         """
         state = self.get_ps('persona_state', False)
         return EPersonaState(state) if state else EPersonaState.Offline
+
+    @property
+    def rich_presence(self):
+        """Contains Rich Presence key-values
+
+        :rtype: dict
+        """
+        kvs = self.get_ps('rich_presence')
+        data = {}
+
+        if kvs:
+            for kv in kvs:
+                data[kv.key] = kv.value
+
+        return data
 
     def get_avatar_url(self, size=2):
         """Get URL to avatar picture

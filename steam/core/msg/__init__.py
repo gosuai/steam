@@ -18,10 +18,9 @@ cmsg_lookup_predefined = {
     EMsg.ServiceMethodResponse: steammessages_clientserver_2_pb2.CMsgClientServiceMethodResponse,
     EMsg.ClientGetNumberOfCurrentPlayersDP: steammessages_clientserver_2_pb2.CMsgDPGetNumberOfCurrentPlayers,
     EMsg.ClientGetNumberOfCurrentPlayersDPResponse: steammessages_clientserver_2_pb2.CMsgDPGetNumberOfCurrentPlayersResponse,
-    EMsg.ClientCreateAccountProto: steammessages_clientserver_2_pb2.CMsgClientCreateAccount,
-    EMsg.ClientCreateAccountProtoResponse: steammessages_clientserver_2_pb2.CMsgClientCreateAccountResponse,
     EMsg.ClientEmailChange4: steammessages_clientserver_2_pb2.CMsgClientEmailChange,
     EMsg.ClientEmailChangeResponse4: steammessages_clientserver_2_pb2.CMsgClientEmailChangeResponse,
+    EMsg.ClientLogonGameServer: steammessages_clientserver_login_pb2.CMsgClientLogon,
 }
 
 cmsg_lookup = dict()
@@ -66,7 +65,6 @@ class Msg(object):
     def __init__(self, msg, data=None, extended=False):
         self.extended = extended
         self.header = ExtendedMsgHdr(data) if extended else MsgHdr(data)
-        self.header.msg = msg
         self.msg = msg
 
         if data:
@@ -76,6 +74,14 @@ class Msg(object):
 
         if deserializer:
             self.body = deserializer(data)
+
+    @property
+    def msg(self):
+        return self.header.msg
+
+    @msg.setter
+    def msg(self, value):
+        self.header.msg = EMsg(value)
 
     def serialize(self):
         return self.header.serialize() + self.body.serialize()
@@ -111,17 +117,12 @@ class Msg(object):
         rows = ["Msg"]
 
         header = str(self.header)
-        if header:
-            rows.append("-------------- header --")
-            rows.append(header)
+        rows.append("-------------- header --")
+        rows.append(header if header else "(empty)")
 
         body = str(self.body)
-        if body:
-            rows.append("---------------- body --")
-            rows.append(body)
-
-        if len(rows) == 1:
-            rows[0] += " (empty)"
+        rows.append("---------------- body --")
+        rows.append(body if body else "(empty)")
 
         return '\n'.join(rows)
 
@@ -132,8 +133,8 @@ class MsgProto(object):
 
     def __init__(self, msg, data=None):
         self._header = MsgHdrProtoBuf(data)
-        self.msg = self._header.msg = msg
         self.header = self._header.proto
+        self.msg = msg
 
         if msg == EMsg.ServiceMethod:
             proto = get_um(self.header.target_job_name)
@@ -150,6 +151,14 @@ class MsgProto(object):
             if data:
                 data = data[self._header._fullsize:]
                 self.body.ParseFromString(data)
+
+    @property
+    def msg(self):
+        return self._header.msg
+
+    @msg.setter
+    def msg(self, value):
+        self._header.msg = EMsg(value)
 
     def serialize(self):
         return self._header.serialize() + self.body.SerializeToString()
@@ -174,21 +183,15 @@ class MsgProto(object):
         return "<MsgProto %s>" % repr(self.msg)
 
     def __str__(self):
-        rows = ["MsgProto"]
+        rows = ["MsgProto %s" % repr(self.msg)]
 
         header = str(self.header).rstrip()
-        if header:
-            rows.append("-------------- header --")
-            rows.append(header)
+        rows.append("-------------- header --")
+        rows.append(header if header else "(empty)")
 
         body = str(self.body).rstrip()
-        if body:
-            rows.append("---------------- body --")
-            rows.append(body)
-
-        if len(rows) == 1:
-            rows[0] += " (empty)"
+        rows.append("---------------- body --")
+        rows.append(body if body else "(empty)")
 
         return '\n'.join(rows)
-
 

@@ -8,6 +8,8 @@ service_lookup = {
     'Credentials':         'steam.protobufs.steammessages_credentials_pb2',
     'ContentBuilder':      'steam.protobufs.steammessages_depotbuilder_pb2',
     'DeviceAuth':          'steam.protobufs.steammessages_deviceauth_pb2',
+    'DataPublisher':       'steam.protobufs.steammessages_datapublisher_pb2',
+    'ValveHWSurvey':       'steam.protobufs.steammessages_datapublisher_pb2',
     'Econ':                'steam.protobufs.steammessages_econ_pb2',
     'GameNotifications':   'steam.protobufs.steammessages_gamenotifications_pb2',
     'GameServers':         'steam.protobufs.steammessages_gameservers_pb2',
@@ -21,15 +23,23 @@ service_lookup = {
     'Player':              'steam.protobufs.steammessages_player_pb2',
     'PublishedFile':       'steam.protobufs.steammessages_publishedfile_pb2',
     'KeyEscrow':           'steam.protobufs.steammessages_secrets_pb2',
+    'Shader':              'steam.protobufs.steammessages_shader_pb2',
+    'SiteLicense':         'steam.protobufs.steammessages_site_license_pb2',
+    'Store':               'steam.protobufs.steammessages_store_pb2',
     'TwoFactor':           'steam.protobufs.steammessages_twofactor_pb2',
     'MsgTest':             'steam.protobufs.steammessages_unified_test_pb2',
-    'Video':               'steam.protobufs.steammessages_video_pb2',
-    'SiteLicense':         'steam.protobufs.steammessages_site_license_pb2',
     'UserAccount':         'steam.protobufs.steammessages_useraccount_pb2',
+    'Video':               'steam.protobufs.steammessages_video_pb2',
+    'Chat':                'steam.protobufs.steammessages_chat_pb2',
+    'ChatRoom':            'steam.protobufs.steammessages_chat_pb2',
+    'ClanChatRooms':       'steam.protobufs.steammessages_chat_pb2',
+    'ChatRoomClient':      'steam.protobufs.steammessages_chat_pb2',
+    'ChatUsability':       'steam.protobufs.steammessages_chat_pb2',
+    'ChatUsabilityClient': 'steam.protobufs.steammessages_chat_pb2',
 }
 
-method_lookup = {
-}
+method_lookup = {}
+
 
 def get_um(method_name, response=False):
     """Get protobuf for given method name
@@ -50,7 +60,7 @@ def get_um(method_name, response=False):
         interface, method, version = match[0]
 
         if interface not in service_lookup:
-            raise None
+            return None
 
         package = import_module(service_lookup[interface])
 

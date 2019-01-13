@@ -8,7 +8,6 @@ from collections import defaultdict
 from io import BytesIO
 
 import gevent
-from gevent import event, queue
 from random import shuffle
 
 from steam.steamid import SteamID
@@ -248,10 +247,11 @@ class CMClient(EventEmitter):
                     msg = Msg(emsg, message, extended=True)
             except Exception as e:
                 self._LOG.fatal("Failed to deserialize message: %s (is_proto: %s)",
-                             str(emsg),
-                             is_proto(emsg_id)
-                             )
+                                str(emsg),
+                                is_proto(emsg_id)
+                                )
                 self._LOG.exception(e)
+                return
 
         if self.verbose_debug:
             self._LOG.debug("Incoming: %s\n%s" % (repr(msg), str(msg)))
@@ -429,15 +429,12 @@ class CMServerList(object):
             ('208.78.164.9', 27018),
             ('208.78.164.11', 27017),
             ('162.254.193.7', 27019),
-            ('162.254.196.41', 27018),
             ('162.254.193.47', 27017),
             ('155.133.242.9', 27019),
-            ('162.254.196.43', 27017),
             ('208.78.164.14', 27018),
             ('155.133.242.8', 27018),
             ('162.254.195.45', 27017),
             ('208.78.164.10', 27018),
-            ('162.254.196.41', 27017),
             ('208.78.164.12', 27017),
             ('208.64.201.176', 27018),
             ('146.66.152.10', 27017),
@@ -445,7 +442,6 @@ class CMServerList(object):
             ('185.25.180.14', 27017),
             ('162.254.193.46', 27018),
             ('155.133.242.9', 27017),
-            ('162.254.196.40', 27019),
             ('162.254.195.44', 27018),
             ('162.254.195.45', 27018),
             ('208.78.164.9', 27017),

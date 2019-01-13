@@ -29,7 +29,7 @@ init:
 
 test:
 	coverage erase
-	PYTHONHASHSEED=0 nosetests --nologcapture --verbosity 1 --with-coverage --cover-package=steam tests
+	PYTHONHASHSEED=0 pytest --cov=steam tests
 
 webauth_gen:
 	rm -f vcr/webauth*
@@ -57,9 +57,9 @@ upload: dist register
 	twine upload -r pypi dist/*
 
 pb_fetch:
-	wget -nv --show-progress -N -P ./protobufs/ -i protobuf_list.txt
+	wget -nv --show-progress -N -P ./protobufs/ -i protobuf_list.txt || exit 0
 	rename -v '.steamclient' '' protobufs/*.proto
-	sed -i '1d' protobufs/test_messages.proto
+	sed -i '1d' protobufs/{steammessages_physicalgoods,test_messages}.proto
 	sed -i '1s/^/package foobar;\n/' protobufs/gc.proto
 	sed -i 's/optional \./optional foobar./' protobufs/gc.proto
 	sed -i '1s/^/syntax = "proto2"\;\n/' protobufs/*.proto
