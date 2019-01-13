@@ -36,10 +36,11 @@ service_lookup = {
     'ChatRoomClient':      'steam.protobufs.steammessages_chat_pb2',
     'ChatUsability':       'steam.protobufs.steammessages_chat_pb2',
     'ChatUsabilityClient': 'steam.protobufs.steammessages_chat_pb2',
+    'FriendMessages':      'steam.protobufs.steammessages_friendmessages_pb2',
+    'FriendMessagesClient': 'steam.protobufs.steammessages_friendmessages_pb2',
 }
 
 method_lookup = {}
-
 
 def get_um(method_name, response=False):
     """Get protobuf for given method name
