@@ -1694,11 +1694,11 @@ class EMsg(SteamIntEnum):
     ClientFSEnumerateFollowingListResponse = 7520
     FSGetPendingNotificationCount = 7521
     FSGetPendingNotificationCountResponse = 7522
-    ClientFSOfflineMessageNotification = 7523
-    ClientFSRequestOfflineMessageCount = 7524
-    ClientFSGetFriendMessageHistory = 7525
-    ClientFSGetFriendMessageHistoryResponse = 7526
-    ClientFSGetFriendMessageHistoryForOfflineMessages = 7527
+    ClientOfflineMessageNotification = 7523
+    ClientRequestOfflineMessageCount = 7524
+    ClientChatGetFriendMessageHistory = 7525
+    ClientChatGetFriendMessageHistoryResponse = 7526
+    ClientChatGetFriendMessageHistoryForOfflineMessages = 7527
     ClientFSGetFriendsSteamLevels = 7528
     ClientFSGetFriendsSteamLevelsResponse = 7529
     FSRequestFriendData = 7530
