@@ -118,7 +118,7 @@ message CMsgClientPersonaState {
 		}
 
 		message KV {
-			optional string key = 1;
+			optional bytes key = 1;
 			optional bytes value = 2;
 		}
 
