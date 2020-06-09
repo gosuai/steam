@@ -119,8 +119,8 @@ message CMsgClientPersonaState {
 		}
 
 		message KV {
-			optional string key = 1;
-			optional string value = 2;
+			optional bytes key = 1;
+			optional bytes value = 2;
 		}
 
 		optional fixed64 friendid = 1;
@@ -139,7 +139,7 @@ message CMsgClientPersonaState {
 		optional uint32 last_logon = 46;
 		optional uint32 last_seen_online = 47;
 		optional uint32 clan_rank = 50;
-		optional string game_name = 55;
+		optional bytes game_name = 55;
 		optional fixed64 gameid = 56;
 		optional bytes game_data_blob = 60;
 		optional .CMsgClientPersonaState.Friend.ClanData clan_data = 64;
