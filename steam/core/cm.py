@@ -4,7 +4,7 @@ import logging
 from gzip import GzipFile
 from time import time
 from collections import defaultdict
-from itertools import cycle, count
+from itertools import cycle, count, product
 
 from io import BytesIO
 
@@ -125,15 +125,7 @@ class CMClient(EventEmitter):
 
         i = count(0)
 
-        while len(self.cm_servers) == 0:
-            if not self.auto_discovery or (retry and next(i) >= retry):
-                if not self.auto_discovery:
-                    self._LOG.error("CM server list is empty. Auto discovery is off.")
-                self._connecting = False
-                return False
-
-            if not self.cm_servers.bootstrap_from_webapi():
-                self.cm_servers.bootstrap_from_dns()
+        self.cm_servers.bootstrap_from_list()
 
         for i, server_addr in enumerate(cycle(self.cm_servers), start=next(i)-1):
             if retry and i >= retry:
@@ -446,6 +438,30 @@ class CMServerList(object):
         if len(self.list):
             self._LOG.debug("List cleared.")
         self.list.clear()
+
+    def bootstrap_from_list(self):
+        initial_hosts = (
+            '146.66.155.101',
+            '155.133.230.34',
+            '155.133.230.50',
+            '155.133.248.50',
+            '155.133.248.51',
+            '162.254.196.67',
+            '162.254.197.40',
+            '162.254.197.42',
+            '162.254.197.180',
+            '162.254.197.181',
+            '162.254.198.130'
+            '162.254.198.131',
+            '162.254.198.132',
+            '162.254.198.133',
+            '185.25.182.76',
+            '185.25.182.77',
+        )
+        initial_ports = (27017, 27018, 27019, 27020)
+        self.merge_list([(host, port) for host, port in product(initial_hosts, initial_ports)])
+
+        return True
 
     def bootstrap_from_dns(self):
         """
